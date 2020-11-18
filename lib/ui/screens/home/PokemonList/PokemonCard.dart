@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PokemonCard extends StatelessWidget {
-  final Pokemon pokemon;
+  final Item pokemon;
 
   const PokemonCard({Key key, @required this.pokemon}) : super(key: key);
 

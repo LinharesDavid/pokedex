@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'PokemonList/PokemonListView.dart';
-import 'TypesList/TypesListView.dart';
+import 'itemList/ItemsListView.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
       children: [
         SearchBar(),
         PokemonListView(),
-        TypesListView()
+        ItemsListView()
       ],
     ),
   );

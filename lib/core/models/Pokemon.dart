@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-class Pokemon {
-  Pokemon({
+class Item {
+  Item({
     this.abilities,
     this.baseExperience,
     this.forms,
@@ -25,9 +25,9 @@ class Pokemon {
     this.weight,
   });
 
-  static Pokemon pokemonFromJson(String str) => Pokemon.fromJson(json.decode(str));
+  static Item pokemonFromJson(String str) => Item.fromJson(json.decode(str));
 
-  static String pokemonToJson(Pokemon data) => json.encode(data.toJson());
+  static String pokemonToJson(Item data) => json.encode(data.toJson());
 
   List<Ability> abilities;
   int baseExperience;
@@ -47,7 +47,7 @@ class Pokemon {
   List<Type> types;
   int weight;
 
-  factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
+  factory Item.fromJson(Map<String, dynamic> json) => Item(
     abilities: List<Ability>.from(json["abilities"].map((x) => Ability.fromJson(x))),
     baseExperience: json["base_experience"],
     forms: List<Species>.from(json["forms"].map((x) => Species.fromJson(x))),
