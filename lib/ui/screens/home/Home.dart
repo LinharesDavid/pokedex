@@ -1,18 +1,20 @@
-import 'package:archi_app/core/viewmodels/home/HomeViewModel.dart';
+import 'package:archi_app/ui/screens/home/SearchBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
+import 'PokemonList/PokemonListView.dart';
+import 'TypesList/TypesListView.dart';
+
+class HomeView extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      builder: (context) => HomeViewModel(),
-      child: Scaffold(
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(backgroundColor: Colors.white),
+    body: Column(
+      children: [
+        SearchBar(),
+        PokemonListView(),
+        TypesListView()
+      ],
+    ),
+  );
 }

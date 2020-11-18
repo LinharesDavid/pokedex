@@ -1,14 +1,19 @@
-import 'package:archi_app/core/repositories/characters/CharactersRepository.dart';
-import 'package:archi_app/core/repositories/planets/PlanetsRepository.dart';
-import 'package:archi_app/core/repositories/species/SpeciesRepository.dart';
+import 'package:archi_app/core/repositories/PokemonRepository.dart';
+import 'package:archi_app/core/repositories/TypeRepository.dart';
+import 'package:archi_app/core/viewmodels/home/HomeViewModel.dart';
+import 'package:archi_app/core/viewmodels/pokemonList/PokemonListViewModel.dart';
+import 'package:archi_app/core/viewmodels/typesList/TypesListViewModel.dart';
 import 'package:get_it/get_it.dart';
 
-class Injector {
-  var injector = GetIt.instance;
-  
-  void setup() {
-    injector.registerLazySingleton<CharactersRepository>(() => CharacterRepositoryImpl());
-    injector.registerLazySingleton<SpeciesRepository>(() => SpeciesRepositoryImpl());
-    injector.registerLazySingleton<PlanetsRepository>(() => PlanetsRepositoryImpl());
-  }
+GetIt injector = GetIt.instance;
+
+void setup() {
+  // repositories
+  injector.registerLazySingleton<PokemonRepository>(() => PokemonRepositoryImpl());
+  injector.registerLazySingleton<TypeRepository>(() => TypeRepositoryImpl());
+
+  //viewmodels
+  injector.registerLazySingleton<HomeViewModel>(() => HomeViewModel());
+  injector.registerLazySingleton<PokemonListViewModel>(() => PokemonListViewModel());
+  injector.registerLazySingleton<TypesListViewModel>(() => TypesListViewModel());
 }

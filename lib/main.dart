@@ -1,7 +1,9 @@
+import 'package:archi_app/core/injector/Injector.dart';
 import 'package:archi_app/ui/screens/home/Home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  setup();
   runApp(MyApp());
 }
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: HomeView(),
     );
   }
 }
