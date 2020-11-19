@@ -8,7 +8,7 @@ import 'itemList/ItemsListView.dart';
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(backgroundColor: Colors.white),
+    appBar: AppBar(title: Text("Pokedex")),
     body: Column(
       children: [
         SearchBar(),

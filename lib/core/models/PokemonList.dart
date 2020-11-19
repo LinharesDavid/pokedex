@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-class ItemList {
-  ItemList({
+class PokemonList {
+  PokemonList({
     this.count,
     this.next,
     this.previous,
@@ -17,11 +17,11 @@ class ItemList {
   dynamic previous;
   List<Result> results;
 
-  static ItemList pokemonListFromJson(String str) => ItemList.fromJson(json.decode(str));
+  static PokemonList pokemonListFromJson(String str) => PokemonList.fromJson(json.decode(str));
 
-  static String pokemonListToJson(ItemList data) => json.encode(data.toJson());
+  static String pokemonListToJson(PokemonList data) => json.encode(data.toJson());
 
-  factory ItemList.fromJson(Map<String, dynamic> json) => ItemList(
+  factory PokemonList.fromJson(Map<String, dynamic> json) => PokemonList(
     count: json["count"],
     next: json["next"],
     previous: json["previous"],

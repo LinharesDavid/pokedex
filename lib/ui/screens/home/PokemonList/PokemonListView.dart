@@ -15,31 +15,37 @@ class PokemonListView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                _viewModel.title,
-                style: TextStyle(fontSize: 22),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  _viewModel.title,
+                  style: TextStyle(fontSize: 22),
+                ),
               ),
-              Consumer<PokemonListViewModel>(
-                builder: (context, model, _) {
-                  return Container(
-                    height: 120,
-                    child: NotificationListener<ScrollNotification>(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: model.pokemons.length,
-                          itemBuilder: (_, position) =>
-                              PokemonCard(pokemon: model.pokemons[position]),
-                        ),
-                        onNotification: (notification) {
-                          if (notification.metrics.pixels ==
-                              notification.metrics.maxScrollExtent) {
-                            _viewModel.loadData();
-                          }
-                          return true;
-                        }),
-                  );
-                },
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: Consumer<PokemonListViewModel>(
+                  builder: (context, model, _) {
+                    return Container(
+                      height: 120,
+                      child: NotificationListener<ScrollNotification>(
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: model.pokemons.length,
+                            itemBuilder: (_, position) =>
+                                PokemonCard(pokemon: model.pokemons[position]),
+                          ),
+                          onNotification: (notification) {
+                            if (notification.metrics.pixels ==
+                                notification.metrics.maxScrollExtent) {
+                              _viewModel.loadData();
+                            }
+                            return true;
+                          }),
+                    );
+                  },
+                ),
               )
             ],
           ));

@@ -9,6 +9,7 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
+    shadowColor: Colors.deepOrange,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
     child: Image.network(item.sprites.spritesDefault),
   );

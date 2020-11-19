@@ -8,10 +8,10 @@ import 'package:archi_app/core/viewmodels/DataListViewModel.dart';
 
 class PokemonListViewModel extends DataListViewModel {
   String get title => "Pokemons";
-  ItemList _pokemonList;
-  List<Item> _pokemons = [];
+  PokemonList _pokemonList;
+  List<Pokemon> _pokemons = [];
 
-  UnmodifiableListView<Item> get pokemons => UnmodifiableListView(_pokemons);
+  UnmodifiableListView<Pokemon> get pokemons => UnmodifiableListView(_pokemons);
 
   PokemonRepository _repository = injector.get<PokemonRepository>();
 
@@ -24,13 +24,13 @@ class PokemonListViewModel extends DataListViewModel {
     offset += limit;
   }
 
-  void _setPokemonList(ItemList value) {
+  void _setPokemonList(PokemonList value) {
     _pokemonList = value;
     _fetchPokemons();
   }
 
   Future<void> _fetchPokemons() async {
-    List<Item> list = [];
+    List<Pokemon> list = [];
 
     for (var result in _pokemonList.results) {
       var pokemon = await _repository.getPokemon(result.name);

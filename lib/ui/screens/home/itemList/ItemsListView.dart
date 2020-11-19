@@ -15,27 +15,33 @@ class ItemsListView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                _viewModel.title,
-                style: TextStyle(fontSize: 22),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  _viewModel.title,
+                  style: TextStyle(fontSize: 22),
+                ),
               ),
-              Consumer<ItemsListViewModel>(
-                builder: (context, model, _) {
-                  return Container(
-                    height: 120,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: model.items.length,
-                      itemBuilder: (_, position) {
-                        if (position > model.items.length / 2) {
-                          model.loadData();
-                        }
-                        return ItemCard(item: model.items[position]);
-                      },
-                    ),
-                  );
-                },
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: Consumer<ItemsListViewModel>(
+                  builder: (context, model, _) {
+                    return Container(
+                      height: 120,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: model.items.length,
+                        itemBuilder: (_, position) {
+                          if (position > model.items.length / 2) {
+                            model.loadData();
+                          }
+                          return ItemCard(item: model.items[position]);
+                        },
+                      ),
+                    );
+                  },
+                ),
               )
             ],
           )

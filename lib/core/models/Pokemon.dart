@@ -4,14 +4,14 @@
 
 import 'dart:convert';
 
-class Item {
-  Item({
+class Pokemon {
+  Pokemon({
     this.abilities,
     this.baseExperience,
     this.forms,
     this.gameIndices,
     this.height,
-    this.heldItems,
+    this.heldPokemons,
     this.id,
     this.isDefault,
     this.locationAreaEncounters,
@@ -25,16 +25,16 @@ class Item {
     this.weight,
   });
 
-  static Item pokemonFromJson(String str) => Item.fromJson(json.decode(str));
+  static Pokemon pokemonFromJson(String str) => Pokemon.fromJson(json.decode(str));
 
-  static String pokemonToJson(Item data) => json.encode(data.toJson());
+  static String pokemonToJson(Pokemon data) => json.encode(data.toJson());
 
   List<Ability> abilities;
   int baseExperience;
   List<Species> forms;
   List<GameIndex> gameIndices;
   int height;
-  List<dynamic> heldItems;
+  List<dynamic> heldPokemons;
   int id;
   bool isDefault;
   String locationAreaEncounters;
@@ -47,13 +47,13 @@ class Item {
   List<Type> types;
   int weight;
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
+  factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
     abilities: List<Ability>.from(json["abilities"].map((x) => Ability.fromJson(x))),
     baseExperience: json["base_experience"],
     forms: List<Species>.from(json["forms"].map((x) => Species.fromJson(x))),
     gameIndices: List<GameIndex>.from(json["game_indices"].map((x) => GameIndex.fromJson(x))),
     height: json["height"],
-    heldItems: List<dynamic>.from(json["held_items"].map((x) => x)),
+    heldPokemons: List<dynamic>.from(json["held_items"].map((x) => x)),
     id: json["id"],
     isDefault: json["is_default"],
     locationAreaEncounters: json["location_area_encounters"],
@@ -73,7 +73,7 @@ class Item {
     "forms": List<dynamic>.from(forms.map((x) => x.toJson())),
     "game_indices": List<dynamic>.from(gameIndices.map((x) => x.toJson())),
     "height": height,
-    "held_items": List<dynamic>.from(heldItems.map((x) => x)),
+    "held_items": List<dynamic>.from(heldPokemons.map((x) => x)),
     "id": id,
     "is_default": isDefault,
     "location_area_encounters": locationAreaEncounters,
