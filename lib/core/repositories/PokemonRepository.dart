@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:archi_app/core/models/Pokemon.dart';
 import 'package:archi_app/core/models/PokemonList.dart';
-import 'package:archi_app/core/repositories/BaseRepository.dart';
+import 'package:archi_app/core/repositories/PokemonBaseRepository.dart';
 import 'package:http/http.dart' as http;
 
-abstract class PokemonRepository extends BaseRepository {
+abstract class PokemonRepository extends PokemonBaseRepository {
     Future<PokemonList> get(int limit, int offset);
     Future<Pokemon> getPokemon(String name);
 }

@@ -1,5 +1,5 @@
 import 'package:archi_app/core/models/Pokemon.dart';
-import 'package:archi_app/core/viewmodels/pokemon/PokemonView.dart';
+import 'package:archi_app/ui/screens/pokemon/PokemonList/pokemon/PokemonView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
