@@ -34,9 +34,7 @@ class SpaceHomeView extends StatelessWidget {
                       child: ListView.builder(
                           itemCount: _viewModel.photos.length,
                           itemBuilder: (context, index) {
-                            if (index == _viewModel.photos.length / 2) {
-                              _viewModel.fetchNextData();
-                            }
+                            print(_viewModel.photos[index].imgSrc);
                             return Image.network(
                               _viewModel.photos[index].imgSrc,
                               height: 100,
